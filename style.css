@@ -1,108 +1,108 @@
-body, html {
-    margin: 0;
-    height: 100%;
-    overflow-x: hidden;
-    background: #000;
+:root {
+    --gold: #c5a059;
+    --dark: #0a0a0c;
+    --accent: #ff4500;
 }
 
-/* Background Image - Using a high-quality fantasy landscape */
-.video-bg-placeholder {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://images.unsplash.com/photo-1519074063912-ad2fe3f5193b?q=80&w=2000') no-repeat center center/cover;
-    filter: brightness(40%) sepia(20%);
-    z-index: -1;
+body {
+    background: radial-gradient(circle at center, #1a1a1f 0%, #050505 100%);
+    color: white;
+    font-family: 'Uncial Antiqua', cursive;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
 }
 
-.hero-sheet {
+.main-wrapper {
     position: relative;
-    margin: 5% auto;
-    width: 85%;
-    max-width: 900px;
-    min-height: 600px;
-    color: #e0d1b1;
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.glass-overlay {
-    position: absolute;
+    padding: 40px;
+    max-width: 800px;
     width: 100%;
-    height: 100%;
-    background: rgba(20, 15, 10, 0.85);
-    backdrop-filter: blur(10px);
-    z-index: 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
 }
 
-.content { position: relative; z-index: 1; padding: 40px; }
+.frame-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+}
 
-.glow-title {
+.title {
     font-family: 'Cinzel Decorative', serif;
     font-size: 3.5rem;
     text-align: center;
-    color: #ffd700;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-    margin-bottom: 30px;
+    color: var(--gold);
+    margin: 0;
+    text-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
 }
 
-.main-layout {
+.app-grid {
     display: flex;
-    gap: 40px;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.portrait-area {
+    flex: 1;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--gold);
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
+    border-radius: 10px;
 }
 
-/* Character Portrait */
-.portrait-frame {
-    width: 250px;
-    height: 350px;
-    position: relative;
-    border: 4px solid #c5a059;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-}
+.hero-svg { width: 150px; filter: drop-shadow(0 0 10px var(--gold)); }
 
-.portrait-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: #2c1b0e;
-}
+.form-area { flex: 1; display: flex; flex-direction: column; gap: 15px; }
 
-/* Fire Button Animation */
-.fire-btn {
-    background: linear-gradient(45deg, #8b0000, #ff4500);
-    border: 2px solid #ffd700;
-    padding: 20px 40px;
-    color: white;
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: 0.4s;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.fire-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(255, 69, 0, 0.7);
-}
-
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 15px;
-}
-
-.stat-card {
-    background: rgba(0,0,0,0.4);
-    border: 1px solid #c5a059;
+.dnd-input {
+    background: #111;
+    border: 1px solid #333;
     padding: 15px;
-    text-align: center;
+    color: var(--gold);
+    font-family: 'Uncial Antiqua';
+    outline: none;
+}
+
+.dnd-input:focus { border-color: var(--gold); }
+
+.roll-trigger {
+    background: linear-gradient(135deg, #8b0000 0%, #220000 100%);
+    border: 1px solid var(--gold);
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     transition: 0.3s;
 }
 
-.stat-card:hover { background: rgba(197, 160, 89, 0.2); }
+.roll-trigger:hover {
+    background: var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.05);
+    border-bottom: 3px solid var(--gold);
+    padding: 15px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
