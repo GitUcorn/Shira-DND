@@ -2,37 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Hero Creator</title>
-    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Spectral:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Mythic Character Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Spectral:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-overlay"></div>
-    
-    <div class="sheet-container">
-        <header>
-            <h1 class="ornate-title">Character Record</h1>
-            <div class="decoration">✦ ━━━━━━━━━━━━ ✦</div>
-        </header>
+    <div class="video-bg-placeholder"></div>
 
-        <section class="identity">
-            <input type="text" id="charName" placeholder="Enter Hero Name..." class="fancy-input">
-            <select id="charClass" class="fancy-select">
-                <option value="" disabled selected>Choose Class</option>
-                <option value="Paladin">Paladin</option>
-                <option value="Warlock">Warlock</option>
-                <option value="Ranger">Ranger</option>
-                <option value="Bard">Bard</option>
-                <option value="Druid">Druid</option>
-            </select>
-        </section>
+    <main class="hero-sheet">
+        <div class="glass-overlay"></div>
+        
+        <div class="content">
+            <h1 class="glow-title">LEGEND FORGED</h1>
+            
+            <div class="main-layout">
+                <div class="portrait-frame">
+                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Lucky" alt="Hero Portrait" id="heroImg">
+                    <div class="frame-border"></div>
+                </div>
 
-        <button class="roll-btn" onclick="generateStats()">Roll Attributes</button>
-
-        <div id="statsDisplay" class="stats-grid">
+                <div class="details">
+                    <input type="text" placeholder="Name Your Hero..." class="mythic-input">
+                    <select class="mythic-select" id="charClass">
+                        <option>Dragonborn Paladin</option>
+                        <option>Elf Ranger</option>
+                        <option>Tiefling Warlock</option>
+                        <option>Dwarf Barbarian</option>
+                    </select>
+                    
+                    <button class="fire-btn" onclick="generateStats()">
+                        <span>ROLL FOR FATE</span>
+                    </button>
+                </div>
             </div>
-    </div>
+
+            <div id="statsDisplay" class="stats-container">
+                </div>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
