@@ -1,0 +1,33 @@
+body {
+    background-color: #2c1b0e; /* Dark wood color */
+    font-family: 'Palatino', serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.container {
+    background-color: #f4e4bc; /* Parchment color */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px black;
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid #8b4513;
+}
+
+h1 { text-align: center; color: #5d2e0a; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border: 1px solid #8b4513;
+    text-align: center;
+}
