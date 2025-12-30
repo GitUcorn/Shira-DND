@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D&D Character Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Character Journal</h1>
+        
+        <div class="input-group">
+            <input type="text" id="charName" placeholder="Character Name">
+            <select id="charClass">
+                <option value="Fighter">Fighter</option>
+                <option value="Wizard">Wizard</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Cleric">Cleric</option>
+            </select>
+        </div>
+
+        <button onclick="generateStats()">Roll Ability Scores</button>
+
+        <div id="statsDisplay" class="stats-grid">
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
