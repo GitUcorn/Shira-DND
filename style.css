@@ -1,101 +1,108 @@
-:root {
-    --parchment: #f2e1c1;
-    --ink: #2c1b0e;
-    --gold: #c5a059;
-    --crimson: #8b0000;
-}
-
-body {
+body, html {
     margin: 0;
-    padding: 0;
-    background: radial-gradient(circle, #3a2a1d 0%, #0f0a07 100%);
-    font-family: 'Spectral', serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: var(--ink);
+    height: 100%;
+    overflow-x: hidden;
+    background: #000;
 }
 
-.sheet-container {
-    background-color: var(--parchment);
-    background-image: url('https://www.transparenttextures.com/patterns/p6-for-air.png'); /* Subtle paper texture */
-    padding: 40px;
-    border: 8px double #5d2e0a;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8), inset 0 0 100px rgba(139, 69, 19, 0.2);
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
+/* Background Image - Using a high-quality fantasy landscape */
+.video-bg-placeholder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1519074063912-ad2fe3f5193b?q=80&w=2000') no-repeat center center/cover;
+    filter: brightness(40%) sepia(20%);
+    z-index: -1;
+}
+
+.hero-sheet {
     position: relative;
+    margin: 5% auto;
+    width: 85%;
+    max-width: 900px;
+    min-height: 600px;
+    color: #e0d1b1;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-.ornate-title {
-    font-family: 'MedievalSharp', cursive;
-    font-size: 3rem;
-    margin: 0;
-    color: var(--crimson);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+.glass-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 15, 10, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 0;
 }
 
-.decoration {
-    color: var(--gold);
-    margin-bottom: 20px;
-    letter-spacing: 5px;
+.content { position: relative; z-index: 1; padding: 40px; }
+
+.glow-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3.5rem;
+    text-align: center;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    margin-bottom: 30px;
 }
 
-.fancy-input, .fancy-select {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid var(--ink);
-    font-family: 'MedievalSharp', cursive;
-    font-size: 1.2rem;
-    padding: 10px;
-    margin: 10px;
-    outline: none;
-    color: var(--ink);
+.main-layout {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
-.roll-btn {
-    background: var(--crimson);
+/* Character Portrait */
+.portrait-frame {
+    width: 250px;
+    height: 350px;
+    position: relative;
+    border: 4px solid #c5a059;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.portrait-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #2c1b0e;
+}
+
+/* Fire Button Animation */
+.fire-btn {
+    background: linear-gradient(45deg, #8b0000, #ff4500);
+    border: 2px solid #ffd700;
+    padding: 20px 40px;
     color: white;
-    border: 2px solid var(--gold);
-    padding: 15px 30px;
-    font-family: 'MedievalSharp', cursive;
-    font-size: 1.1rem;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
     cursor: pointer;
-    margin: 20px 0;
-    transition: all 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: 0.4s;
+    width: 100%;
+    margin-top: 20px;
 }
 
-.roll-btn:hover {
-    background: #a50000;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+.fire-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 69, 0, 0.7);
 }
 
-.stats-grid {
+.stats-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 15px;
-    margin-top: 30px;
 }
 
-.stat-box {
-    border: 2px solid var(--gold);
+.stat-card {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid #c5a059;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
+    text-align: center;
+    transition: 0.3s;
 }
 
-.stat-name {
-    display: block;
-    font-family: 'MedievalSharp', cursive;
-    font-size: 0.9rem;
-    color: var(--crimson);
-}
-
-.stat-value {
-    font-size: 2rem;
-    font-weight: bold;
-}
+.stat-card:hover { background: rgba(197, 160, 89, 0.2); }
