@@ -2,45 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mythic Character Creator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+    <title>Mythic Forge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="video-bg-placeholder"></div>
 
-    <main class="hero-sheet">
-        <div class="glass-overlay"></div>
-        
-        <div class="content">
-            <h1 class="glow-title">LEGEND FORGED</h1>
-            
-            <div class="main-layout">
-                <div class="portrait-frame">
-                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Lucky" alt="Hero Portrait" id="heroImg">
-                    <div class="frame-border"></div>
-                </div>
+<div class="main-wrapper">
+    <svg class="frame-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M5 5 L95 5 L95 95 L5 95 Z" fill="none" stroke="#c5a059" stroke-width="0.5"/>
+        <circle cx="5" cy="5" r="2" fill="#c5a059" />
+        <circle cx="95" cy="5" r="2" fill="#c5a059" />
+        <circle cx="5" cy="95" r="2" fill="#c5a059" />
+        <circle cx="95" cy="95" r="2" fill="#c5a059" />
+    </svg>
 
-                <div class="details">
-                    <input type="text" placeholder="Name Your Hero..." class="mythic-input">
-                    <select class="mythic-select" id="charClass">
-                        <option>Dragonborn Paladin</option>
-                        <option>Elf Ranger</option>
-                        <option>Tiefling Warlock</option>
-                        <option>Dwarf Barbarian</option>
-                    </select>
-                    
-                    <button class="fire-btn" onclick="generateStats()">
-                        <span>ROLL FOR FATE</span>
-                    </button>
-                </div>
+    <div class="content">
+        <header>
+            <h1 class="title">MYTHIC FORGE</h1>
+            <p class="subtitle">Begin Your Legend</p>
+        </header>
+
+        <div class="app-grid">
+            <div class="portrait-area">
+                <svg viewBox="0 0 100 120" class="hero-svg">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#c5a059;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#5d2e0a;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M50 10 Q60 10 65 25 L70 50 L85 110 L15 110 L30 50 L35 25 Q40 10 50 10" fill="url(#grad1)" />
+                    <circle cx="50" cy="30" r="12" fill="url(#grad1)" />
+                </svg>
             </div>
 
-            <div id="statsDisplay" class="stats-container">
-                </div>
-        </div>
-    </main>
+            <div class="form-area">
+                <input type="text" id="charName" placeholder="NAME YOUR HERO" class="dnd-input">
+                <select id="charClass" class="dnd-input">
+                    <option>PALADIN</option>
+                    <option>WIZARD</option>
+                    <option>ROGUE</option>
+                    <option>WARRIOR</option>
+                </select>
 
-    <script src="script.js"></script>
+                <button class="roll-trigger" onclick="generateStats()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 0 L19 5 L19 15 L10 20 L1 15 L1 5 Z M10 4 L5 7 L10 10 L15 7 Z" />
+                    </svg>
+                    ROLL FOR ATTRIBUTES
+                </button>
+            </div>
+        </div>
+
+        <div id="statsGrid" class="stats-grid">
+            </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
