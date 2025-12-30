@@ -2,28 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>D&D Character Creator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Hero Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Spectral:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Character Journal</h1>
-        
-        <div class="input-group">
-            <input type="text" id="charName" placeholder="Character Name">
-            <select id="charClass">
-                <option value="Fighter">Fighter</option>
-                <option value="Wizard">Wizard</option>
-                <option value="Rogue">Rogue</option>
-                <option value="Cleric">Cleric</option>
-            </select>
-        </div>
+    <div class="background-overlay"></div>
+    
+    <div class="sheet-container">
+        <header>
+            <h1 class="ornate-title">Character Record</h1>
+            <div class="decoration">✦ ━━━━━━━━━━━━ ✦</div>
+        </header>
 
-        <button onclick="generateStats()">Roll Ability Scores</button>
+        <section class="identity">
+            <input type="text" id="charName" placeholder="Enter Hero Name..." class="fancy-input">
+            <select id="charClass" class="fancy-select">
+                <option value="" disabled selected>Choose Class</option>
+                <option value="Paladin">Paladin</option>
+                <option value="Warlock">Warlock</option>
+                <option value="Ranger">Ranger</option>
+                <option value="Bard">Bard</option>
+                <option value="Druid">Druid</option>
+            </select>
+        </section>
+
+        <button class="roll-btn" onclick="generateStats()">Roll Attributes</button>
 
         <div id="statsDisplay" class="stats-grid">
             </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
